@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pujiverse Profile Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F1FA; --panel:#FFFFFF; --ink:#1F1D36; --muted:#5E5A7A; --line:#DCD7EE;
+  --violet:#6C4DE6; --violet-soft:#ECE7FD; --teal:#138A7D; --teal-soft:#DDF3EF;
+  --sky:#1B1A3A; --star:#8C86B5; --star-lit:#FFD86B;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121128; --panel:#1C1A38; --ink:#EDEBFA; --muted:#A7A2CC; --line:#2F2C55;
+  --violet:#A48BFF; --violet-soft:#2A2458; --teal:#4FD1BF; --teal-soft:#123D3A; --sky:#0B0A1F;
+}}
+:root[data-theme="dark"]{
+  --bg:#121128; --panel:#1C1A38; --ink:#EDEBFA; --muted:#A7A2CC; --line:#2F2C55;
+  --violet:#A48BFF; --violet-soft:#2A2458; --teal:#4FD1BF; --teal-soft:#123D3A; --sky:#0B0A1F;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--violet)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--violet);outline-offset:2px;border-radius:6px}
+
+.hero{background:var(--sky);color:#EDEBFA;padding:40px 20px 28px}
+.hero-inner{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:center}
+.hero h1{font-family:Unbounded,Figtree,sans-serif;font-weight:700;font-size:clamp(28px,5vw,46px);line-height:1.05;margin:0 0 14px;letter-spacing:-.01em}
+.hero p{margin:0 0 18px;color:#C9C4EA;max-width:44ch}
+.count{font-family:Unbounded,sans-serif;font-size:20px;color:#FFD86B}
+.count small{font-family:Figtree,sans-serif;font-size:15px;color:#C9C4EA;margin-left:6px}
+.sky svg{width:100%;height:auto;display:block}
+.sky .ln{stroke:#3A3670;stroke-width:1}
+.sky .ln.on{stroke:#FFD86B;stroke-opacity:.55}
+.sky .st{fill:#8C86B5;transition:fill .4s,r .4s}
+.sky .st.on{fill:#FFD86B}
+.sky .halo{fill:#FFD86B;opacity:0;transition:opacity .4s}
+.sky .halo.on{opacity:.18}
+.sky text{fill:#8C86B5;font:11px Figtree,sans-serif}
+.sky text.on{fill:#FFE9A8}
+@media (prefers-reduced-motion:reduce){.sky .st,.sky .halo{transition:none}}
+
+main{max-width:1040px;margin:0 auto;padding:28px 20px 60px}
+h2{font-family:Unbounded,sans-serif;font-weight:500;font-size:22px;margin:40px 0 6px}
+h2:first-child{margin-top:8px}
+.lede{color:var(--muted);margin:0 0 18px;max-width:70ch}
+
+.bios{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.bio{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.bio h3{margin:0;font-size:16px;font-weight:600;display:flex;justify-content:space-between;gap:8px}
+.bio h3 span{font-weight:500;color:var(--muted);font-size:14px;white-space:nowrap}
+.bio p{margin:0;white-space:pre-wrap;font-size:15px}
+.bio .for{font-size:13px;color:var(--muted)}
+.copy{align-self:flex-start;border:0;background:var(--violet);color:#fff;border-radius:999px;padding:7px 16px;font-weight:600;font-size:14px}
+.copy.done{background:var(--teal)}
+
+.group{margin-top:22px}
+.group h3{font-size:15px;font-weight:600;color:var(--muted);margin:0 0 8px}
+.rows{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row.is-done{background:var(--teal-soft)}
+.row input{width:22px;height:22px;accent-color:var(--teal);margin:0}
+.name{font-weight:600}
+.name small{font-weight:400;color:var(--muted);margin-left:6px}
+.meta{font-size:14px;color:var(--muted)}
+.tag{display:inline-block;background:var(--violet-soft);color:var(--violet);border-radius:999px;padding:1px 9px;font-size:13px;font-weight:600;margin-right:6px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 13px;font-size:14px;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--violet)}
+.btn.done{border-color:var(--teal);color:var(--teal)}
+
+.yt{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:14px}
+.yt-top{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);max-width:100%}
+#ytText{white-space:pre-wrap;margin:0;background:var(--bg);border-radius:10px;padding:14px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:4px 11px;font-size:13px}
+.chip.on{background:var(--teal-soft);border-color:var(--teal);color:var(--teal)}
+.chip.sel{outline:2px solid var(--violet)}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;color:var(--muted);font-size:14px}
+.link-btn{border:0;background:none;color:var(--muted);text-decoration:underline;padding:0}
+
+@media (max-width:760px){
+  .hero-inner{grid-template-columns:1fr}
+  .row{grid-template-columns:auto minmax(0,1fr)}
+  .acts{grid-column:1/-1;justify-content:flex-start;padding-left:36px}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Pujiverse profile kit</h1>
+      <p>Every bio, link and channel description for your profiles in one place. Copy, paste, tick it off, and watch the Pujiverse light up.</p>
+      <div class="count" id="count">0 / 0<small>profiles updated</small></div>
+    </div>
+    <div class="sky" aria-hidden="true"><svg id="sky" viewBox="0 0 560 300"></svg></div>
+  </div>
+</header>
+
+<main>
+  <h2>Your bios</h2>
+  <p class="lede">Five lengths of the same bio, so every platform gets one that fits. Each platform below tells you which one to use. Use Pujiverse Home as the link everywhere: <a href="https://pujiverse.github.io/Pujiversen-Network/" target="_blank" rel="noopener">pujiverse.github.io/Pujiversen-Network</a></p>
+  <div class="bios" id="bios"></div>
+
+  <h2>Platforms</h2>
+  <p class="lede">Open each profile, paste the matching bio, set the website to Pujiverse Home, then tick it. Your progress is saved in this browser.</p>
+  <div id="groups"></div>
+  <p class="note">Character limits change from time to time. If an app says a bio is too long, use the next shorter one.</p>
+
+  <h2>YouTube channel descriptions</h2>
+  <p class="lede">Each of your 39 channels gets its own About text that links back to the whole network. Pick a channel, copy, paste into YouTube Studio → Customization → Basic info → Description.</p>
+  <div class="yt">
+    <div class="yt-top">
+      <select id="ytSel" aria-label="Choose a channel"></select>
+      <button class="copy" id="ytCopy">Copy description</button>
+      <a class="btn" id="ytOpen" target="_blank" rel="noopener">Open channel</a>
+      <button class="btn" id="ytDone">Mark updated</button>
+    </div>
+    <p id="ytText"></p>
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <div class="foot">
+    <span>Pujiverse · pujiverse.github.io/Pujiversen-Network</span>
+    <button class="link-btn" id="reset">Clear all ticks</button>
+  </div>
+</main>
+
+<script>
+const HOME="https://pujiverse.github.io/Pujiversen-Network/";
+const BIOS={
+  headline:{t:"Headline",n:"≤ 50",for:"Quora credential, Product Hunt headline, WhatsApp About",x:"Data & AI Engineer · Pujiverse Creator 🌌"},
+  tiny:{t:"Tiny",n:"≤ 80",for:"TikTok, Facebook personal bio",x:"Data & AI engineer 🤖 Pujiverse Creator 🌌 39 channels of curiosity"},
+  short:{t:"Short",n:"≤ 150",for:"Instagram, Threads, X, GitHub, Medium, Dribbble, short-video apps",x:"Pujiverse Creator 🌌 Full Stack Data & AI Engineer building AI timelines, data explorers & Gemini apps. 39 YouTube channels 👇"},
+  medium:{t:"Medium",n:"≤ 190",for:"Bluesky, Reddit, Discord, Facebook Page, Substack",x:"Creator of Pujiverse 🌌 — 39 YouTube channels plus data & AI projects like The AI Timeline and Vehicle Universe. Full Stack Data & AI Engineer by day."},
+  long:{t:"Long",n:"≤ 500",for:"Pinterest, Patreon, Vimeo, Rumble, Dailymotion, Blogger, Tumblr, Behance, Quora",x:"I'm Pujith Sakhamuri, creator of Pujiverse 🌌 — a network of 39 YouTube channels covering AI, tech, space, mystery, finance, history, recipes and more.\n\nI'm also a Full Stack Data & AI Engineer. I build data platforms on Google Cloud and interactive projects like The AI Timeline, Vehicle Universe and the Pujiverse World Atlas.\n\nEvery channel, app and project lives in one place: pujiverse.github.io/Pujiversen-Network"},
+  li:{t:"LinkedIn headline",n:"≤ 220",for:"Your personal LinkedIn only",x:"Full Stack Data & AI Engineer | GCP · BigQuery · Dataflow · Vertex AI · Gemini API | Network Data Analyst @ Telka (T-Mobile) | Pujiverse Creator"}
+};
+const G=[
+ ["Professional",[
+  ["linkedin","LinkedIn (personal)","pujith-sakhamuri-06b69a137","https://www.linkedin.com/in/pujith-sakhamuri-06b69a137/",["li"],"Edit intro → Headline. Add Pujiverse Home under Contact info."],
+  ["github","GitHub","pujiverse","https://github.com/pujiverse",["short"],"Edit profile → Bio, and set Website to Pujiverse Home."],
+  ["linkedin2","LinkedIn (Pujiverse)","pujiverse-pujith","https://www.linkedin.com/in/pujiverse-pujith-700819392/",["headline","long"],"Headline + About. Consider a Company Page instead of a second profile."],
+  ["producthunt","Product Hunt","@pujiverse","https://www.producthunt.com/@pujiverse",["headline","medium"],"Settings → Headline and About."],
+  ["behance","Behance","pujiverse","https://www.behance.net/pujiverse",["long"],"Edit profile → About me."],
+  ["dribbble","Dribbble","pujiverse","https://dribbble.com/pujiverse",["short"],"Settings → Profile → Bio."],
+  ["sketchfab","Sketchfab","Pujiverse","https://sketchfab.com/Pujiverse",["long"],"Settings → Profile → About and Website."]]],
+ ["Social",[
+  ["instagram","Instagram","@pujiverseofficial","https://www.instagram.com/pujiverseofficial/",["short"],"Edit profile → Bio, then Links → Pujiverse Home first."],
+  ["facebookpage","Facebook Page","PUJIVERSEOFFICIAL","https://www.facebook.com/PUJIVERSEOFFICIAL/",["medium"],"Page → Edit details → Bio. Website: Pujiverse Home."],
+  ["facebook","Facebook (personal)","Pujith Sakhamuri","https://www.facebook.com/",["tiny"],"Profile → Edit profile → Bio. Add Creator, Pujiverse Network under Work."],
+  ["threads","Threads","@pujiverseofficial","https://www.threads.net/@pujiverseofficial",["short"],"Edit profile → Bio and Link."],
+  ["x","X (Twitter)","@pujiverse","https://x.com/pujiverse",["short"],"Edit profile → Bio and Website."],
+  ["bluesky","Bluesky","pujiverse.bsky.social","https://bsky.app/profile/pujiverse.bsky.social",["medium"],"Edit profile → Description."],
+  ["pinterest","Pinterest","pujiverse","https://in.pinterest.com/pujiverse/",["long"],"Settings → Edit profile → About and Website."],
+  ["reddit","Reddit","u/pujiverse","https://www.reddit.com/user/pujiverse/",["medium"],"Settings → Profile → About and Social links."],
+  ["discord","Discord","pujiverse","",["medium"],"User settings → Profiles → About me."],
+  ["whatsapp","WhatsApp","Pujith Sakhamuri","https://wa.me/message/HPIAGRGKO23SM1",["headline"],"Settings → your name → About."],
+  ["telegram","Telegram","@pujiverse","https://t.me/pujiverse",["tiny"],"Settings → Edit profile → Bio."]]],
+ ["Video",[
+  ["tiktok","TikTok","@pujiverse","https://www.tiktok.com/@pujiverse",["tiny"],"Edit profile → Bio. Website field appears once eligible."],
+  ["snapchat","Snapchat Spotlight","pujiverse official","https://snapchat.com/t/bprrYRF8",["short"],"Public profile → Edit → Bio and Website."],
+  ["rumble","Rumble","pujiverse","https://rumble.com/user/pujiverse",["long"],"Channel → Edit → Description."],
+  ["vimeo","Vimeo","pujiverse","https://vimeo.com/pujiverse",["long"],"Settings → Profile → Bio and Links."],
+  ["dailymotion","Dailymotion","PUJIVERSE","https://www.dailymotion.com/PUJIVERSE",["long"],"Channel settings → Description and Website."],
+  ["likee","Likee","pujiverse","https://l.likee.video/p/h1YdV",["short"],"Profile → Edit profile → Bio."],
+  ["kwai","Kwai","@Pujiverse","https://k.kwai.com/u/@Pujiverse/2sGeerCN",["short"],"Profile → Edit profile → Bio."],
+  ["moj","Moj","@pujiverse","https://mojapp.in/@pujiverse",["short"],"Profile → Edit profile → Bio."],
+  ["trendo","Trendo","pujiverse","https://s.trendo.vip/Jjoq",["short"],"Profile → Edit profile → Bio."],
+  ["twitch","Twitch","pujiverse_ai","https://www.twitch.tv/pujiverse_ai",["medium"],"Settings → Profile → Bio, then Channel → About for links."],
+  ["soundcloud","SoundCloud","pujiverse","https://soundcloud.com/pujiverse",["long"],"Edit profile → Bio and Your links."],
+  ["imdb","IMDb","Pujiverse","https://www.imdb.com/user/p.aclcmdbqqkrtmxcppzezlcxolq/",["medium"],"Your profile → Edit profile → Bio."]]],
+ ["Writing & support",[
+  ["medium","Medium","@pujiverse","https://medium.com/@pujiverse",["short"],"Settings → Profile information → Short bio."],
+  ["substack","Substack","@pujiverse","https://substack.com/@pujiverse",["medium"],"Settings → Profile → Bio."],
+  ["blogger","Blogger","pujiverse.blogspot.com","https://pujiverse.blogspot.com/",["long"],"Blogger profile → About me. Add an About gadget to the blog too."],
+  ["tumblr","Tumblr","pujiverse","https://www.tumblr.com/pujiverse",["long"],"Blog settings → Description."],
+  ["quora","Quora","Pujiverse","https://www.quora.com/profile/Pujiverse",["headline","long"],"Profile → Credential (headline) and Description."],
+  ["patreon","Patreon","pujiverse","https://www.patreon.com/cw/pujithchowdarysakhamuri",["long"],"Edit page → About."],
+  ["etsy","Etsy","pujiverse","https://www.etsy.com/people/jqo8bz5apmta83y3",["medium"],"Your account → Public profile → About."]]]
+];
+const CH=[
+["Pujiverse AI","pujiverseai","explainers on artificial intelligence, new models and the tools shaping how we work."],
+["PUJIVERSE TECH","pujiversetech","technology news, how things work and practical tech explained simply."],
+["Pujiverse Future","pujiversefuture","ideas, inventions and trends that could shape the decades ahead."],
+["Pujiverse Space","pujiversespace","planets, missions, stars and the story of space exploration."],
+["Pujiverse Gadgets","pujiversegadgets","new devices, comparisons and the gadgets worth knowing about."],
+["Pujiverse Science","pujiversescience","science made clear, from physics and biology to everyday phenomena."],
+["Pujiverse Mystery","pujiversemystery","unsolved puzzles, strange places and stories that still have no answer."],
+["Pujiverse True Crime","pujiversetruecrime","carefully told true-crime cases, investigations and what they revealed."],
+["Pujiverse Psychology","pujiversepsychology","how the mind works: behaviour, habits and the science of thinking."],
+["Pujiverse Conspiracy","pujiverseconspiracy","famous conspiracy theories examined against the evidence."],
+["Pujiverse Paranormal","pujiverseparanormal","ghost stories, legends and unexplained encounters from around the world."],
+["Pujiverse Mind","pujiversemind","focus, memory and mental wellbeing, explained in plain language."],
+["Pujiverse Finance","pujiversefinance","personal finance, money habits and markets explained for everyday people."],
+["Pujiverse Business","pujiversebusiness","how companies are built, business stories and lessons from founders."],
+["Pujiverse Crypto","pujiversecrypto","cryptocurrency and blockchain explained: how it works and what to watch."],
+["Pujiverse Real Estate","pujiverserealestate","property markets, buying and renting, and real-estate basics."],
+["Pujiverse Luxury","pujiverseluxury","luxury brands, remarkable homes and cars, and the stories behind them."],
+["Pujiverse Jobs","pujiversejobs","job-search tips, careers, interviews and roles in demand."],
+["Pujiverse Gaming","pujiversegaming","games, gameplay and gaming culture."],
+["PUJIVERSE CINE","pujiversemovies","movies, stories and cinema from film industries around the world."],
+["Pujiverse Sports","pujiversesports","sports stories, big moments and the athletes behind them."],
+["Pujiverse Celebrity","pujiversecelebrity","entertainment news and the stories of well-known personalities."],
+["PujiVerse Beatz","pujiversebeatz","beats and instrumentals to study, work and relax to."],
+["Pujiverse Music","pujiversemusic","music, artists and songs from around the world."],
+["Pujiverse Shorts","pujiverseshorts","quick, bite-sized videos from across the Pujiverse."],
+["Pujiverse Talk","pujiversetalk","conversations, opinions and discussions on topics that matter."],
+["PUJIVERSE HISTORY","pujiversehistory","the moments, people and events that shaped the world."],
+["Pujiverse Languages","pujiverselanguages","simple lessons, words and phrases for learning new languages."],
+["PUJIVERSE KIDS","pujiversekids","fun learning videos for children."],
+["Pujiverse Devotional","pujiversedevotional","devotional songs, stories and spiritual traditions."],
+["Pujiverse Motivation","pujiversemotivation","motivational stories and ideas to keep you moving forward."],
+["Pujiverse Fitness","pujiversefitness","workouts, training tips and healthy routines."],
+["Pujiverse Recipes","pujiverserecipes","easy recipes and cooking from kitchens around the world."],
+["Pujiverse LifeStyle","pujiverselifestyle","everyday living, travel, style and routines."],
+["Pujiverse Life Hacks","pujiverselifehacks","simple tips and tricks that make daily life easier."],
+["Pujiverse Ocean","pujiverseocean","the ocean, marine life and the mysteries of the deep sea."],
+["Pujiverse Aviation","pujiverseaviation","aircraft, airlines, airports and how flight works."],
+["Pujiverse Agriculture","pujiverseagriculture","farming, crops and the people who grow our food."],
+["Pujiverse Transport","pujiversetransport","vehicles of every kind, from bicycles to rockets."]
+];
+const ytText=c=>`${c[0]} is part of the Pujiverse Network 🌌: ${c[2].charAt(0).toUpperCase()+c[2].slice(1)}\n\nSubscribe for new videos, and explore all 39 Pujiverse channels, apps and projects:\n${HOME}\n\nCreated by Pujith Sakhamuri.`;
+
+// storage
+const KEY="pujiverse-kit-v1";
+let S={};
+try{S=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){S={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+
+async function copyText(t,btn,label){
+  try{await navigator.clipboard.writeText(t)}catch(e){
+    const ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy")}catch(_){}ta.remove();
+  }
+  const old=label||btn.textContent;btn.textContent="Copied";btn.classList.add("done");
+  setTimeout(()=>{btn.textContent=old;btn.classList.remove("done")},1400);
+}
+const lc=t=>t.startsWith("LinkedIn")?t:t.toLowerCase();
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// bios
+const bioBox=document.getElementById("bios");
+Object.entries(BIOS).forEach(([k,b])=>{
+  const d=document.createElement("div");d.className="bio";
+  d.innerHTML=`<h3>${b.t}<span>${[...b.x].length} chars · ${b.n}</span></h3><p>${esc(b.x)}</p><div class="for">For: ${b.for}</div><button class="copy">Copy ${lc(b.t)}</button>`;
+  d.querySelector("button").onclick=e=>copyText(b.x,e.currentTarget);
+  bioBox.appendChild(d);
+});
+
+// platforms
+const ALL=[];
+const gBox=document.getElementById("groups");
+G.forEach(([title,list])=>{
+  const g=document.createElement("section");g.className="group";
+  g.innerHTML=`<h3>${title}</h3><div class="rows"></div>`;
+  const rows=g.querySelector(".rows");
+  list.forEach(p=>{
+    const [id,name,handle,url,tiers,where]=p;ALL.push({id,name,group:title});
+    const r=document.createElement("div");r.className="row";r.id="row-"+id;
+    const tags=tiers.map(t=>`<span class="tag">${BIOS[t].t}</span>`).join("");
+    r.innerHTML=`<input type="checkbox" aria-label="${esc(name)} updated">
+      <div><div class="name">${esc(name)}<small>${esc(handle)}</small></div><div class="meta">${tags}${esc(where)}</div></div>
+      <div class="acts"></div>`;
+    const acts=r.querySelector(".acts");
+    tiers.forEach(t=>{const b=document.createElement("button");b.className="btn";b.textContent="Copy "+lc(BIOS[t].t);b.onclick=()=>copyText(BIOS[t].x,b);acts.appendChild(b)});
+    const lb=document.createElement("button");lb.className="btn";lb.textContent="Copy link";lb.onclick=()=>copyText(HOME,lb);acts.appendChild(lb);
+    if(url){const a=document.createElement("a");a.className="btn";a.href=url;a.target="_blank";a.rel="noopener";a.textContent="Open";acts.appendChild(a)}
+    const cb=r.querySelector("input");cb.checked=!!S[id];r.classList.toggle("is-done",cb.checked);
+    cb.onchange=()=>{S[id]=cb.checked;save();r.classList.toggle("is-done",cb.checked);render()};
+    rows.appendChild(r);
+  });
+  gBox.appendChild(g);
+});
+
+// youtube
+const sel=document.getElementById("ytSel"),yt=document.getElementById("ytText"),chips=document.getElementById("chips");
+CH.forEach((c,i)=>{const o=document.createElement("option");o.value=i;o.textContent=`${c[0]}  (@${c[1]})`;sel.appendChild(o)});
+function showYT(){
+  const c=CH[sel.value];yt.textContent=ytText(c);
+  document.getElementById("ytOpen").href=`https://www.youtube.com/@${c[1]}`;
+  const done=!!S["yt-"+c[1]];const b=document.getElementById("ytDone");b.textContent=done?"Updated ✓":"Mark updated";b.classList.toggle("done",done);
+  [...chips.children].forEach((ch,i)=>ch.classList.toggle("sel",i==sel.value));
+}
+CH.forEach((c,i)=>{const b=document.createElement("button");b.className="chip";b.textContent=c[0].replace(/^pujiverse /i,"");b.title=c[0];b.onclick=()=>{sel.value=i;showYT()};chips.appendChild(b)});
+sel.onchange=showYT;
+document.getElementById("ytCopy").onclick=e=>copyText(yt.textContent,e.currentTarget);
+document.getElementById("ytDone").onclick=()=>{const k="yt-"+CH[sel.value][1];S[k]=!S[k];save();showYT();render()};
+
+// sky
+const sky=document.getElementById("sky");
+function rnd(seed){let x=seed;return()=>{x=(x*9301+49297)%233280;return x/233280}}
+const STARS=[];
+(function build(){
+  const r=rnd(7),cols=[[20,150],[150,290],[290,420],[420,545]];
+  G.forEach(([t,list],gi)=>{
+    const [x0,x1]=cols[gi];
+    list.forEach((p,i)=>{
+      const y=30+(i+0.5)*(240/list.length)+(r()-.5)*14;
+      const x=x0+14+r()*(x1-x0-60);
+      STARS.push({id:p[0],name:p[1],x,y,g:gi});
+    });
+  });
+  let s="";
+  STARS.forEach((a,i)=>{const b=STARS[i+1];if(b&&b.g===a.g)s+=`<line class="ln" data-a="${a.id}" data-b="${b.id}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/>`});
+  STARS.forEach(a=>{s+=`<circle class="halo" data-id="${a.id}" cx="${a.x}" cy="${a.y}" r="11"/><circle class="st" data-id="${a.id}" cx="${a.x}" cy="${a.y}" r="3.2"/><text data-id="${a.id}" x="${a.x+7}" y="${a.y+4}">${esc(a.name.replace(/ \(.*\)/,""))}</text>`});
+  sky.innerHTML=s;
+})();
+function render(){
+  const n=ALL.filter(p=>S[p.id]).length;
+  const y=CH.filter(c=>S["yt-"+c[1]]).length;
+  document.getElementById("count").innerHTML=`${n} / ${ALL.length}<small>profiles · ${y} / 39 channels updated</small>`;
+  sky.querySelectorAll("[data-id]").forEach(el=>el.classList.toggle("on",!!S[el.dataset.id]));
+  sky.querySelectorAll(".ln").forEach(el=>el.classList.toggle("on",!!S[el.dataset.a]&&!!S[el.dataset.b]));
+  [...chips.children].forEach((ch,i)=>ch.classList.toggle("on",!!S["yt-"+CH[i][1]]));
+}
+document.getElementById("reset").onclick=()=>{if(confirm("Clear all ticks?")){S={};save();document.querySelectorAll(".row input").forEach(c=>{c.checked=false;c.closest(".row").classList.remove("is-done")});showYT();render()}};
+showYT();render();
+</script>
+</body>
+</html>

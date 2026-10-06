@@ -203,10 +203,10 @@ footer a{color:rgba(255,255,255,.6)}
   }
   function mergeSites(extra) {
     var out = (window.PV_WEBSITES || []).map(function (w) { return Object.assign({}, w); }), seen = {};
-    out.forEach(function (s) { seen[hostPath(s.url)] = 1; });
+    var seenId = {}; out.forEach(function (s) { seen[hostPath(s.url)] = 1; seenId[s.id] = 1; });
     (extra || []).forEach(function (w) {
       var url = w.url || w.link; if (!url || w.is_live === false) return;
-      var k = hostPath(url); if (seen[k]) return; seen[k] = 1;
+      var k = hostPath(url); if (seen[k] || (w.id && seenId[w.id])) return; seen[k] = 1;
       var cat = CATC[w.category] ? w.category : (w.tags && w.tags[0] && CATC[w.tags[0]]) ? w.tags[0] : 'Web app & tool';
       out.push({ id: w.id || k, cat: cat, title: w.title || w.name || host(url), url: url, description: w.description || w.desc || '', repo: w.repo || '', accent: w.accent || CATC[cat] });
     });
@@ -228,6 +228,11 @@ footer a{color:rgba(255,255,255,.6)}
       { key: 'social', label: 'Social Hub', sub: social.length + ' accounts', emo: '🌐', color: '#c084fc', route: 'social', enter: 'Connecting to the social hub…' },
       { key: 'websites', label: 'Websites', sub: sites.length + ' live sites', emo: '💻', color: '#4ade80', route: 'websites', enter: 'Loading my websites…' }
     ];
+    var FEAT = [['ai', 'ai-timeline', 'AI Timeline', '🤖'], ['vehicles', 'vehicle-universe', 'Vehicle Universe', '🚗'], ['world', 'world-atlas', 'World Atlas', '🌍'], ['films', 'film-database', 'Film Database', '🎬']];
+    FEAT.forEach(function (f) {
+      var s = sites.filter(function (x) { return x.id === f[1]; })[0]; if (!s) return;
+      base.push({ key: f[0], featured: true, label: f[2], sub: host(safeUrl(s.url)), emo: f[3], color: (CATC['Featured data platform'] || '#22d3ee'), href: s.url, newTab: true });
+    });
     var ov = (home && home.planets) || {};
     return base.map(function (it) {
       var o = ov[it.key] || {};
@@ -237,7 +242,7 @@ footer a{color:rgba(255,255,255,.6)}
       if (o.sub) out.sub = o.sub;
       if (o.color) out.color = o.color;
       if (o.emo && o.emo !== it.emo) { out.emo = o.emo; out.img = null; }
-      if (it.key === 'info' && o.href) out.href = o.href;
+      if ((it.key === 'info' || it.featured) && o.href) out.href = o.href;
       if (it.key === 'about' && o.href && o.href !== 'https://pujiverse.vercel.app/') { out.href = o.href; out.route = null; }
       return out;
     }).filter(Boolean);
@@ -247,10 +252,11 @@ footer a{color:rgba(255,255,255,.6)}
       return { label: s.platform, sub: s.handle, group: s.group, color: s.color, img: iconUrl(s), txt: abbr(s.platform), href: s.url, newTab: true };
     });
   }
+  function backupOf(w) { var m = (w && w.mirrors) || []; return m.filter(function (u) { return /github\.io/.test(u); })[0] || m[0] || ''; }
   function siteItems() {
     return sites.map(function (w) {
       var local = !isExternal(safeUrl(w.url));
-      return { label: w.title, sub: w.description, group: w.cat, color: w.accent || CATC[w.cat] || '#4ade80', emo: CAT_EMO[w.cat] || '🪐', href: w.url, repo: w.repo, newTab: !local, urlText: host(safeUrl(w.url)) };
+      return { label: w.title, sub: w.description, group: w.cat, color: w.accent || CATC[w.cat] || '#4ade80', emo: CAT_EMO[w.cat] || '🪐', href: w.url, repo: w.repo, backup: backupOf(w), newTab: !local, urlText: host(safeUrl(w.url)) };
     });
   }
   function aboutItems() {
@@ -368,6 +374,7 @@ footer a{color:rgba(255,255,255,.6)}
     if (it.newTab) { main.target = '_blank'; main.rel = 'noopener noreferrer'; }
     var c = el('div', { class: 'card', style: { '--c': it.color }, title: it.sub || '' }, main);
     if (it.repo) c.append(el('a', { class: 'repo', href: safeUrl(it.repo), target: '_blank', rel: 'noopener noreferrer', title: 'Source code on GitHub' }, 'Code'));
+    if (it.backup) c.append(el('a', { class: 'repo', href: safeUrl(it.backup), target: '_blank', rel: 'noopener noreferrer', title: 'Backup copy of this site' }, 'Backup'));
     return c;
   }
   function grouped(title, items, order) {
@@ -457,8 +464,9 @@ footer a{color:rgba(255,255,255,.6)}
         $title.replaceChildren();
         $hint.textContent = 'Click a planet to explore · hover to pause';
         $tag.textContent = (P.short || 'MY UNIVERSE').toUpperCase();
-        var items = homeItems(), sizes = [92, 84, 80, 84, 80], offs = [0.9, -0.7, 2.3, 3.9, 5.3];
-        buildSystem(items.map(function (it, i) { return { r: 150 + i * 62, dur: 38 + i * 13, size: sizes[i] || 80, items: [it], offset: offs[i] || 0 }; }));
+        var items = homeItems(), core = items.filter(function (it) { return !it.featured; }), feat = items.filter(function (it) { return it.featured; });
+        var all = core.concat(feat);
+        buildSystem([{ r: Math.max(200, all.length * 30), dur: 90, size: 84, items: all, offset: -Math.PI / 2 }]);
         flat('Explore', items);
       }
       $back.classList.toggle('on', view === 'social' || view === 'websites' || view === 'about');

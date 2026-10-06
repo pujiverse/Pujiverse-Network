@@ -4,7 +4,7 @@
 // Loaded by index.html and channels.html. Edit here to update every page.
 // ============================================================
 (function () {
-  var PV_DATA_VERSION = '2026-10-portfolio';
+  var PV_DATA_VERSION = '2026-10-domains';
 
   var PV_PROFILE = {
     name: 'Pujith Chowdary Sakhamuri',
@@ -15,7 +15,7 @@
     email: 'pujiverse@gmail.com',
     officialChannel: { name: 'Pujith Sakhamuri', handle: '@PujithSakhamuri', url: 'https://www.youtube.com/@PujithSakhamuri' },
     links: {
-      home: 'https://pujiverse.github.io/Pujiverse-Network/',
+      home: 'https://www.pujiverse.com/',
       portfolio: 'https://pujith-sakhamuri-portfolio.vercel.app/',
       github: 'https://github.com/pujiverse',
       resume: 'https://github.com/pujiverse/pujiverse/blob/main/resume.pdf',
@@ -24,7 +24,7 @@
     about: 'I build data platforms and AI tools, from pipelines and semantic models on Google Cloud to web apps people use. Network Data Analyst at Telka supporting T-Mobile; previously Full Stack Data & AI Engineer for CVS Pharmacy (SR Systems) and Data Engineer for Cleveland Clinic (IvyNova). Creator of Pujiverse: 39 YouTube channels plus interactive projects like The AI Timeline, Vehicle Universe and the Pujiverse World Atlas.',
     stats: { projects: 32, live: 29, githubPages: 11, vercel: 18, aiStudio: 19, channels: 39, platforms: 37, experience: 8 },
     experience: [
-      { company: 'Pujiverse Network', title: 'Creator & Founder', type: 'Self-employed', location: 'Remote', start: 'Mar 2025', end: 'Present', text: 'Built and run a network of 39 YouTube channels, interactive data projects (The AI Timeline, Vehicle Universe, World Atlas) and 18+ Gemini-powered apps.', link: 'https://pujiverse.github.io/Pujiverse-Network/' },
+      { company: 'Pujiverse Network', title: 'Creator & Founder', type: 'Self-employed', location: 'Remote', start: 'Mar 2025', end: 'Present', text: 'Built and run a network of 39 YouTube channels, interactive data projects (The AI Timeline, Vehicle Universe, World Atlas) and 18+ Gemini-powered apps.', link: 'https://www.pujiverse.com/' },
       { company: 'Telka LLC', title: 'Network Data Analyst', type: 'Full-time', location: 'Prosper, TX (client: T-Mobile, Central Region)', start: 'Aug 2026', end: 'Present', text: '5G/LTE drive-test data and RF metrics (RSRP, RSRQ, SINR, throughput); Python/SQL log validation; FCC compliance audits; weekly KPI dashboards.' },
       { company: 'Alignerr', title: 'AI & LLM Evaluation Specialist', type: 'Contract', location: 'Remote', start: 'Jan 2025', end: 'Present', text: 'Evaluate LLM outputs on Python, SQL and multi-step reasoning under RLHF guidelines; build tool-calling validation datasets.' },
       { company: 'Upwork', title: 'Full Stack & Generative AI Developer', type: 'Freelance', location: 'Remote', start: 'Jan 2024', end: 'Present', text: 'Web apps and AI tools for small businesses with React, TypeScript, Python and the Gemini API on Vercel and Cloud Run.' },
@@ -94,14 +94,15 @@
     'Home': '#f59e0b', 'Featured data platform': '#22d3ee', 'Web app & tool': '#4ade80',
     'Google AI Studio app': '#c084fc', 'Academic': '#f472b6', 'Profile': '#94a3b8'
   };
-  function w(id, cat, title, description, tech, host, url, repo) {
-    return { id: id, cat: cat, title: title, description: description, tech: tech, host: host, url: url, repo: repo, tags: [cat, host], accent: CAT[cat] || '#22d3ee' };
+  function w(id, cat, title, description, tech, host, url, repo, mirrors) {
+    return { mirrors: mirrors || [], id: id, cat: cat, title: title, description: description, tech: tech, host: host, url: url, repo: repo, tags: [cat, host], accent: CAT[cat] || '#22d3ee' };
   }
   var PV_WEBSITES = [
-    w('pujiverse-home', 'Home', 'Pujiverse Home (Network Hub)', 'Main home page for the Pujiverse Network: channels, projects and apps in one place', 'HTML/JS', 'GitHub Pages', 'https://pujiverse.github.io/Pujiverse-Network/', 'https://github.com/pujiverse/Pujiverse-Network'),
-    w('ai-timeline', 'Featured data platform', 'The AI Timeline', 'Interactive history of AI from 1843 to today: era timeline, release tracker, model library and comparisons', 'HTML/JS', 'GitHub Pages', 'https://pujiverse.github.io/The-AI-Timeline/', 'https://github.com/pujiverse/The-AI-Timeline'),
-    w('vehicle-universe', 'Featured data platform', 'Vehicle Universe', 'Every vehicle from bicycles to rockets: 57 types, 3,400+ brands, 59,000+ models', 'HTML/JS, BigQuery', 'GitHub Pages', 'https://pujiverse.github.io/Vehicle-Universe/', 'https://github.com/pujiverse/Vehicle-Universe'),
-    w('world-atlas', 'Featured data platform', 'Pujiverse World Atlas', '3D globe population explorer, world to city, 2015–2025 trends and water bodies', 'HTML/JS, BigQuery', 'GitHub Pages', 'https://pujiverse.github.io/pujiverse-world-atlas/', 'https://github.com/pujiverse/pujiverse-world-atlas'),
+    w('pujiverse-home', 'Home', 'Pujiverse Home (Network Hub)', 'Main home page for the Pujiverse Network: channels, projects and apps in one place', 'HTML/JS', 'GitHub Pages', 'https://www.pujiverse.com/', 'https://github.com/pujiverse/Pujiverse-Network', ['https://pujiverse.github.io/Pujiverse-Network/']),
+    w('ai-timeline', 'Featured data platform', 'The AI Timeline', 'Interactive history of AI from 1843 to today: era timeline, release tracker, model library with side-by-side comparison and a built-in AI guide', 'HTML/JS', 'GitHub Pages', 'https://aitimeline.pujiverse.com/', 'https://github.com/pujiverse/The-AI-Timeline', ['https://ai-timeline.pujiverse.com/', 'https://pujiverse.github.io/The-AI-Timeline/']),
+    w('vehicle-universe', 'Featured data platform', 'Vehicle Universe', 'Explorer for every kind of vehicle, from bicycles to rockets: 57 types, 3,400+ brands, 59,000+ models with brand histories and specs', 'HTML/JS, BigQuery', 'GitHub Pages', 'https://vehicles.pujiverse.com/', 'https://github.com/pujiverse/Vehicle-Universe', ['https://pujiverse.github.io/Vehicle-Universe/']),
+    w('world-atlas', 'Featured data platform', 'Pujiverse World Atlas', '3D globe population explorer with drill-down from world to city, 2015–2025 trends, density and 1,400+ water bodies', 'HTML/JS, BigQuery', 'GitHub Pages', 'https://world.pujiverse.com/', 'https://github.com/pujiverse/pujiverse-world-atlas', ['https://pujiverse.github.io/pujiverse-world-atlas/']),
+    w('film-database', 'Featured data platform', 'Pujiverse Film Database', 'IMDb-style database of movies, short films, anime and TV across world film industries, organized by year', 'HTML/JS', 'GitHub Pages', 'https://cinema.pujiverse.com/', 'https://github.com/pujiverse/Pujiverse-Film-Database', ['https://movies.pujiverse.com/', 'https://pujiverse.github.io/Pujiverse-Film-Database/']),
     w('bizmanager-lite', 'Web app & tool', 'BizManager Lite', 'Dependency-free business, chit, loan and household expense manager', 'HTML/CSS/JS', 'GitHub Pages', 'https://pujiverse.github.io/ledger/', 'https://github.com/pujiverse/ledger'),
     w('household-firebase', 'Web app & tool', 'Household Expense Manager (Firebase)', 'Multi-page expense, business and chit manager with Firebase Authentication', 'JavaScript, Firebase', 'GitHub Pages', 'https://pujiverse.github.io/HouseholdExpenseManager/', 'https://github.com/pujiverse/HouseholdExpenseManager'),
     w('expense-sheets', 'Web app & tool', 'Expense Manager (Google Sheets)', 'Household expense, business, chit and loan tracker backed by Google Sheets', 'JavaScript, Google Sheets API', 'GitHub Pages', 'https://pujiverse.github.io/Expense-Manager/', 'https://github.com/pujiverse/Expense-Manager'),
@@ -130,7 +131,6 @@
   ];
   // In progress / code only (shown in lists, not as live sites)
   var PV_WEBSITES_UPCOMING = [
-    w('film-database', 'Featured data platform', 'Pujiverse Film Database', 'IMDb-style database of movies, short films, anime and TV across world film industries', 'HTML/JS', 'GitHub Pages', '', 'https://github.com/pujiverse/Pujiverse-Film-Database'),
     w('flypal', 'Web app & tool', 'FlyPal', 'Concept: real-time social matching app for airport layovers', '—', '—', '', 'https://github.com/pujiverse/FlyPal'),
     w('vidprompt-v1', 'Google AI Studio app', 'VidPrompt Studio (earlier version)', 'Earlier offline-first version of VidPrompt Studio', 'TypeScript, React, Gemini API', '—', '', 'https://github.com/pujiverse/VidPrompt-Studio')
   ];

@@ -150,6 +150,7 @@ CREATE TABLE IF NOT EXISTS websites (
   tech text,
   host text,
   repo text,
+  mirrors text[],
   tags text[],
   accent text,
   is_live boolean DEFAULT true,
@@ -161,6 +162,7 @@ ALTER TABLE websites ADD COLUMN IF NOT EXISTS category text;
 ALTER TABLE websites ADD COLUMN IF NOT EXISTS tech text;
 ALTER TABLE websites ADD COLUMN IF NOT EXISTS host text;
 ALTER TABLE websites ADD COLUMN IF NOT EXISTS repo text;
+ALTER TABLE websites ADD COLUMN IF NOT EXISTS mirrors text[];
 ALTER TABLE websites ADD COLUMN IF NOT EXISTS is_live boolean DEFAULT true;
 ALTER TABLE websites ADD COLUMN IF NOT EXISTS display_order integer DEFAULT 0;
 ALTER TABLE websites ADD COLUMN IF NOT EXISTS updated_at timestamptz DEFAULT now();

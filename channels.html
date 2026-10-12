@@ -2489,7 +2489,8 @@ const PV_HOME_DEFAULT = {
     ai:       { label: 'AI Timeline',    sub: '', emo: '🤖', color: '#22d3ee', href: '', show: true },
     vehicles: { label: 'Vehicle Universe', sub: '', emo: '🚗', color: '#22d3ee', href: '', show: true },
     world:    { label: 'World Atlas',    sub: '', emo: '🌍', color: '#22d3ee', href: '', show: true },
-    films:    { label: 'Film Database',  sub: '', emo: '🎬', color: '#22d3ee', href: '', show: true }
+    films:    { label: 'Film Database',  sub: '', emo: '🎬', color: '#22d3ee', href: '', show: true },
+    kitchen:  { label: 'Kitchen',        sub: '', emo: '🍳', color: '#22d3ee', href: '', show: true }
   }
 };
 function HomeTab({ supabase }) {
@@ -2514,7 +2515,7 @@ function HomeTab({ supabase }) {
   };
   const inp = { padding: '9px 11px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 9, color: '#e8e8f8', fontSize: 13, outline: 'none', width: '100%', fontFamily: 'inherit' };
   const lab = { fontSize: 11, color: 'rgba(255,255,255,0.45)', marginBottom: 4, display: 'block' };
-  const names = { about: 'About Me planet', info: 'Personal Info planet', youtube: 'YouTube planet (opens channels)', social: 'Social Hub planet (uses Social Links tab)', websites: 'Websites planet (uses Websites tab)', ai: 'Featured: The AI Timeline (blank link = live site)', vehicles: 'Featured: Vehicle Universe (blank link = live site)', world: 'Featured: World Atlas (blank link = live site)', films: 'Featured: Film Database (blank link = live site)' };
+  const names = { about: 'About Me planet', info: 'Personal Info planet', youtube: 'YouTube planet (opens channels)', social: 'Social Hub planet (uses Social Links tab)', websites: 'Websites planet (uses Websites tab)', ai: 'Featured: The AI Timeline (blank link = live site)', vehicles: 'Featured: Vehicle Universe (blank link = live site)', world: 'Featured: World Atlas (blank link = live site)', films: 'Featured: Film Database (blank link = live site)', kitchen: 'Featured: Pujiverse Kitchen (blank link = live site)' };
   return (
     <div style={{ maxWidth: 820 }}>
       <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", margin: '0 0 6px' }}>🏠 Home Page</h2>
@@ -2526,7 +2527,7 @@ function HomeTab({ supabase }) {
         </div>
         {Object.keys(PV_HOME_DEFAULT.planets).map(k => {
           const p = cfg.planets[k] || {};
-          const hasHref = ['about', 'info', 'ai', 'vehicles', 'world', 'films'].includes(k);
+          const hasHref = ['about', 'info', 'ai', 'vehicles', 'world', 'films', 'kitchen'].includes(k);
           return (
             <div key={k} style={{ padding: 16, borderRadius: 12, background: 'rgba(255,255,255,0.03)', border: `1px solid ${p.color || '#333'}44`, opacity: p.show === false ? 0.55 : 1 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12, gap: 10, flexWrap: 'wrap' }}>

@@ -190,7 +190,7 @@ footer a{color:rgba(255,255,255,.6)}
   }
 
   // ---------- data ----------
-  var channelCount = (P.stats && P.stats.channels) || 39;
+  var channelCount = (P.stats && P.stats.channels) || 41;
   try { var lc = JSON.parse(localStorage.getItem('pv_channels') || 'null'); if (Array.isArray(lc) && lc.length > channelCount) channelCount = lc.length; } catch (e) {}
   var social = normSocial(readLocal('pv_social') || window.PV_SOCIAL || []);
   var sites = mergeSites(readLocal('pv_websites'));

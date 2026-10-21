@@ -4,7 +4,7 @@
 // Loaded by index.html and channels.html. Edit here to update every page.
 // ============================================================
 (function () {
-  var PV_DATA_VERSION = '2026-10-domains';
+  var PV_DATA_VERSION = '2026-10-41-channels';
 
   var PV_PROFILE = {
     name: 'Pujith Chowdary Sakhamuri',
@@ -16,15 +16,15 @@
     officialChannel: { name: 'Pujith Sakhamuri', handle: '@PujithSakhamuri', url: 'https://www.youtube.com/@PujithSakhamuri' },
     links: {
       home: 'https://www.pujiverse.com/',
-      portfolio: 'https://pujith-sakhamuri-portfolio.vercel.app/',
+      portfolio: 'https://pujith.pujiverse.com/',
       github: 'https://github.com/pujiverse',
       resume: 'https://github.com/pujiverse/pujiverse/blob/main/resume.pdf',
       linkedin: 'https://www.linkedin.com/in/pujith-sakhamuri-06b69a137/'
     },
-    about: 'I build data platforms and AI tools, from pipelines and semantic models on Google Cloud to web apps people use. Network Data Analyst at Telka supporting T-Mobile; previously Full Stack Data & AI Engineer for CVS Pharmacy (SR Systems) and Data Engineer for Cleveland Clinic (IvyNova). Creator of Pujiverse: 39 YouTube channels plus interactive projects like The AI Timeline, Vehicle Universe and the Pujiverse World Atlas.',
-    stats: { projects: 32, live: 29, githubPages: 11, vercel: 18, aiStudio: 19, channels: 39, platforms: 37, experience: 8 },
+    about: 'I build data platforms and AI tools, from pipelines and semantic models on Google Cloud to web apps people use. Network Data Analyst at Telka supporting T-Mobile; previously Full Stack Data & AI Engineer for CVS Pharmacy (SR Systems) and Data Engineer for Cleveland Clinic (IvyNova). Creator of Pujiverse: 41 YouTube channels plus interactive projects like The AI Timeline, Vehicle Universe, the Pujiverse World Atlas and Pujiverse Kitchen.',
+    stats: { projects: 33, live: 31, githubPages: 11, vercel: 19, aiStudio: 19, channels: 41, platforms: 37, experience: 8 },
     experience: [
-      { company: 'Pujiverse Network', title: 'Creator & Founder', type: 'Self-employed', location: 'Remote', start: 'Mar 2025', end: 'Present', text: 'Built and run a network of 39 YouTube channels, interactive data projects (The AI Timeline, Vehicle Universe, World Atlas) and 18+ Gemini-powered apps.', link: 'https://www.pujiverse.com/' },
+      { company: 'Pujiverse Network', title: 'Creator & Founder', type: 'Self-employed', location: 'Remote', start: 'Mar 2025', end: 'Present', text: 'Built and run a network of 41 YouTube channels, interactive data projects (The AI Timeline, Vehicle Universe, World Atlas, Pujiverse Kitchen) and 18+ Gemini-powered apps.', link: 'https://www.pujiverse.com/' },
       { company: 'Telka LLC', title: 'Network Data Analyst', type: 'Full-time', location: 'Prosper, TX (client: T-Mobile, Central Region)', start: 'Aug 2026', end: 'Present', text: '5G/LTE drive-test data and RF metrics (RSRP, RSRQ, SINR, throughput); Python/SQL log validation; FCC compliance audits; weekly KPI dashboards.' },
       { company: 'Alignerr', title: 'AI & LLM Evaluation Specialist', type: 'Contract', location: 'Remote', start: 'Jan 2025', end: 'Present', text: 'Evaluate LLM outputs on Python, SQL and multi-step reasoning under RLHF guidelines; build tool-calling validation datasets.' },
       { company: 'Upwork', title: 'Full Stack & Generative AI Developer', type: 'Freelance', location: 'Remote', start: 'Jan 2024', end: 'Present', text: 'Web apps and AI tools for small businesses with React, TypeScript, Python and the Gemini API on Vercel and Cloud Run.' },
@@ -54,7 +54,6 @@
   var PV_SOCIAL = [
     { group: 'Video & audio', platform: 'YouTube (official)', icon: 'yt', handle: '@PujithSakhamuri', url: 'https://www.youtube.com/@PujithSakhamuri', color: '#ff0000' },
     { group: 'Professional', platform: 'LinkedIn (personal)', icon: 'li', handle: 'pujith-sakhamuri-06b69a137', url: 'https://www.linkedin.com/in/pujith-sakhamuri-06b69a137/', color: '#0a66c2' },
-    { group: 'Professional', platform: 'LinkedIn (Pujiverse)', icon: 'li', handle: 'pujiverse-pujith', url: 'https://www.linkedin.com/in/pujiverse-pujith-700819392/', color: '#0a66c2' },
     { group: 'Professional', platform: 'GitHub', icon: 'github', handle: 'pujiverse', url: 'https://github.com/pujiverse', color: '#6e7681' },
     { group: 'Professional', platform: 'Product Hunt', icon: 'producthunt', handle: '@pujiverse', url: 'https://www.producthunt.com/@pujiverse', color: '#da552f' },
     { group: 'Design', platform: 'Behance', icon: 'behance', handle: 'pujiverse', url: 'https://www.behance.net/pujiverse', color: '#1769ff' },
@@ -103,7 +102,7 @@
     w('vehicle-universe', 'Featured data platform', 'Vehicle Universe', 'Explorer for every kind of vehicle, from bicycles to rockets: 57 types, 3,400+ brands, 59,000+ models with brand histories and specs', 'HTML/JS, BigQuery', 'GitHub Pages', 'https://vehicles.pujiverse.com/', 'https://github.com/pujiverse/Vehicle-Universe', ['https://pujiverse.github.io/Vehicle-Universe/']),
     w('world-atlas', 'Featured data platform', 'Pujiverse World Atlas', '3D globe population explorer with drill-down from world to city, 2015–2025 trends, density and 1,400+ water bodies', 'HTML/JS, BigQuery', 'GitHub Pages', 'https://world.pujiverse.com/', 'https://github.com/pujiverse/pujiverse-world-atlas', ['https://pujiverse.github.io/pujiverse-world-atlas/']),
     w('film-database', 'Featured data platform', 'Pujiverse Film Database', 'IMDb-style database of movies, short films, anime and TV across world film industries, organized by year', 'HTML/JS', 'GitHub Pages', 'https://cinema.pujiverse.com/', 'https://github.com/pujiverse/Pujiverse-Film-Database', ['https://movies.pujiverse.com/', 'https://pujiverse.github.io/Pujiverse-Film-Database/']),
-    w('pujiverse-kitchen', 'Featured data platform', 'Pujiverse Kitchen', 'Pujiverse Kitchen — cooking and recipes', 'HTML/JS', 'GitHub Pages', 'https://kitchen.pujiverse.com/', 'https://github.com/pujiverse/pujiverse-kitchen', ['https://pujiverse.github.io/pujiverse-kitchen/']),
+    w('pujiverse-kitchen', 'Featured data platform', 'Pujiverse Kitchen', 'Indian regional cooking by state: dishes, ingredients and step-by-step recipes', 'HTML/JS', 'Vercel', 'https://kitchen.pujiverse.com/', '', ['https://pujiverse.github.io/pujiverse-kitchen/']),
     w('bizmanager-lite', 'Web app & tool', 'BizManager Lite', 'Dependency-free business, chit, loan and household expense manager', 'HTML/CSS/JS', 'GitHub Pages', 'https://pujiverse.github.io/ledger/', 'https://github.com/pujiverse/ledger'),
     w('household-firebase', 'Web app & tool', 'Household Expense Manager (Firebase)', 'Multi-page expense, business and chit manager with Firebase Authentication', 'JavaScript, Firebase', 'GitHub Pages', 'https://pujiverse.github.io/HouseholdExpenseManager/', 'https://github.com/pujiverse/HouseholdExpenseManager'),
     w('expense-sheets', 'Web app & tool', 'Expense Manager (Google Sheets)', 'Household expense, business, chit and loan tracker backed by Google Sheets', 'JavaScript, Google Sheets API', 'GitHub Pages', 'https://pujiverse.github.io/Expense-Manager/', 'https://github.com/pujiverse/Expense-Manager'),
@@ -126,7 +125,7 @@
     w('business-manager-pro', 'Google AI Studio app', 'Business Manager Pro', 'Business, chit, expense and loan tracking with reports', 'TypeScript, React, Supabase, Recharts', 'Vercel', 'https://biz-manager-eight.vercel.app/', 'https://github.com/pujiverse/biz-manager'),
     w('pujiverse-hub-v1', 'Google AI Studio app', 'Pujiverse Hub (earlier version)', 'First version of the personal hub for socials, projects and contact', 'TypeScript, React, Gemini API', 'Vercel', 'https://pujiverse.vercel.app/', 'https://github.com/pujiverse/pujiverse-hub'),
     w('live-sync-portfolio', 'Google AI Studio app', 'Live-Sync Portfolio', 'Google-Sheet-synced portfolio with a Gemini assistant', 'TypeScript, React, Gemini API', 'Vercel', 'https://pujithsakhamuri.vercel.app/', 'https://github.com/pujiverse/New-Portfolio'),
-    w('professional-portfolio', 'Google AI Studio app', 'Professional Portfolio', 'Career portfolio', 'TypeScript, React, Gemini API', 'Vercel', 'https://pujith-sakhamuri-portfolio.vercel.app/', 'https://github.com/pujiverse/my-protfolio'),
+    w('professional-portfolio', 'Google AI Studio app', 'Professional Portfolio', 'Career portfolio', 'TypeScript, React, Gemini API', 'Vercel', 'https://pujith.pujiverse.com/', 'https://github.com/pujiverse/my-protfolio'),
     w('aiml-500-portfolio', 'Academic', 'AIML-500 Professional Portfolio', 'Professional portfolio for AIML-500 (Indiana Wesleyan University)', 'HTML', 'GitHub Pages', 'https://pujiverse.github.io/pujith_portfolio/', 'https://github.com/pujiverse/pujith_portfolio'),
     w('github-profile', 'Profile', 'GitHub Profile README', 'Profile page with projects, channels and links', 'Markdown', 'GitHub', 'https://github.com/pujiverse', 'https://github.com/pujiverse/pujiverse')
   ];

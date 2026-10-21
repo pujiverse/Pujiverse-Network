@@ -26,7 +26,7 @@
     ['Tech & Science', 'ai tech future space gadgets science', 'tech science technology'],
     ['Mystery & Mind', 'mystery truecrime psychology conspiracy paranormal mind', 'mystery mind crime psychology paranormal'],
     ['Money & Career', 'finance business crypto realestate luxury jobs', 'money career finance business'],
-    ['Entertainment', 'gaming movies sports celebrity beatz music shorts talk', 'entertainment fun'],
+    ['Entertainment', 'gaming movies sports celebrity beatz music shorts talk talkies cartoons webseries web series', 'entertainment fun'],
     ['Learning & Culture', 'history languages kids devotional motivation', 'learning culture education'],
     ['Lifestyle', 'fitness recipes lifestyle lifehacks', 'lifestyle health food'],
     ['World & Transport', 'ocean aviation agriculture transport', 'world transport travel']

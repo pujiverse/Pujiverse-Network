@@ -228,7 +228,7 @@ footer a{color:rgba(255,255,255,.6)}
       { key: 'social', label: 'Social Hub', sub: social.length + ' accounts', emo: '🌐', color: '#c084fc', route: 'social', enter: 'Connecting to the social hub…' },
       { key: 'websites', label: 'Websites', sub: sites.length + ' live sites', emo: '💻', color: '#4ade80', route: 'websites', enter: 'Loading my websites…' }
     ];
-    var FEAT = [['ai', 'ai-timeline', 'AI Timeline', '🤖'], ['vehicles', 'vehicle-universe', 'Vehicle Universe', '🚗'], ['world', 'world-atlas', 'World Atlas', '🌍'], ['films', 'film-database', 'Film Database', '🎬'], ['kitchen', 'pujiverse-kitchen', 'Kitchen', '🍳']];
+    var FEAT = [['ai', 'ai-timeline', 'AI Timeline', '🤖'], ['vehicles', 'vehicle-universe', 'Vehicle Universe', '🚗'], ['world', 'world-atlas', 'World Atlas', '🌍'], ['films', 'film-database', 'Film Database', '🎬'], ['kitchen', 'pujiverse-kitchen', 'Kitchen', '🍳'], ['tech', 'pujiverse-tech', 'Pujiverse Tech', '📱']];
     FEAT.forEach(function (f) {
       var s = sites.filter(function (x) { return x.id === f[1]; })[0]; if (!s) return;
       base.push({ key: f[0], featured: true, label: f[2], sub: host(safeUrl(s.url)), emo: f[3], color: (CATC['Featured data platform'] || '#22d3ee'), href: s.url, newTab: true });

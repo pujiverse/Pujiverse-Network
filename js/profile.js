@@ -4,7 +4,7 @@
 // Loaded by index.html and channels.html. Edit here to update every page.
 // ============================================================
 (function () {
-  var PV_DATA_VERSION = '2026-10-41-channels';
+  var PV_DATA_VERSION = '2026-11-sports-games';
 
   var PV_PROFILE = {
     name: 'Pujith Chowdary Sakhamuri',
@@ -22,7 +22,7 @@
       linkedin: 'https://www.linkedin.com/in/pujith-sakhamuri-06b69a137/'
     },
     about: 'I build data platforms and AI tools, from pipelines and semantic models on Google Cloud to web apps people use. Network Data Analyst at Telka supporting T-Mobile; previously Full Stack Data & AI Engineer for CVS Pharmacy (SR Systems) and Data Engineer for Cleveland Clinic (IvyNova). Creator of Pujiverse: 41 YouTube channels plus interactive projects like The AI Timeline, Vehicle Universe, the Pujiverse World Atlas and Pujiverse Kitchen.',
-    stats: { projects: 33, live: 31, githubPages: 11, vercel: 19, aiStudio: 19, channels: 41, platforms: 37, experience: 8 },
+    stats: { projects: 35, live: 33, githubPages: 11, vercel: 21, aiStudio: 19, channels: 41, platforms: 37, experience: 8 },
     experience: [
       { company: 'Pujiverse Network', title: 'Creator & Founder', type: 'Self-employed', location: 'Remote', start: 'Mar 2025', end: 'Present', text: 'Built and run a network of 41 YouTube channels, interactive data projects (The AI Timeline, Vehicle Universe, World Atlas, Pujiverse Kitchen) and 18+ Gemini-powered apps.', link: 'https://www.pujiverse.com/' },
       { company: 'Telka LLC', title: 'Network Data Analyst', type: 'Full-time', location: 'Prosper, TX (client: T-Mobile, Central Region)', start: 'Aug 2026', end: 'Present', text: '5G/LTE drive-test data and RF metrics (RSRP, RSRQ, SINR, throughput); Python/SQL log validation; FCC compliance audits; weekly KPI dashboards.' },
@@ -104,6 +104,7 @@
     w('film-database', 'Featured data platform', 'Pujiverse Film Database', 'IMDb-style database of movies, short films, anime and TV across world film industries, organized by year', 'HTML/JS', 'GitHub Pages', 'https://cinema.pujiverse.com/', 'https://github.com/pujiverse/Pujiverse-Film-Database', ['https://movies.pujiverse.com/', 'https://pujiverse.github.io/Pujiverse-Film-Database/']),
     w('pujiverse-kitchen', 'Featured data platform', 'Pujiverse Kitchen', 'Indian regional cooking by state: dishes, ingredients and step-by-step recipes', 'HTML/JS', 'Vercel', 'https://kitchen.pujiverse.com/', '', ['https://pujiverse.github.io/pujiverse-kitchen/']),
     w('pujiverse-tech', 'Featured data platform', 'Pujiverse Tech', 'Every gadget that runs on power, from phones and computers to smart home, wearables and EVs: what exists today and how each one evolved, from the @pujiversetech channel', 'HTML/JS', 'Vercel', 'https://tech.pujiverse.com/', 'https://github.com/pujiverse/Pujiverse-Tech', ['https://pujiversetech.vercel.app/']),
+    w('pujiverse-games-sports', 'Featured data platform', 'Pujiverse Sports & Games', 'How to play 1,716 games and sports from around the world, by category', 'HTML/JS', 'Vercel', 'https://sports.pujiverse.com/', '', ['https://games.pujiverse.com/', 'https://pujiverse-games-sports.vercel.app/']),
     w('bizmanager-lite', 'Web app & tool', 'BizManager Lite', 'Dependency-free business, chit, loan and household expense manager', 'HTML/CSS/JS', 'GitHub Pages', 'https://pujiverse.github.io/ledger/', 'https://github.com/pujiverse/ledger'),
     w('household-firebase', 'Web app & tool', 'Household Expense Manager (Firebase)', 'Multi-page expense, business and chit manager with Firebase Authentication', 'JavaScript, Firebase', 'GitHub Pages', 'https://pujiverse.github.io/HouseholdExpenseManager/', 'https://github.com/pujiverse/HouseholdExpenseManager'),
     w('expense-sheets', 'Web app & tool', 'Expense Manager (Google Sheets)', 'Household expense, business, chit and loan tracker backed by Google Sheets', 'JavaScript, Google Sheets API', 'GitHub Pages', 'https://pujiverse.github.io/Expense-Manager/', 'https://github.com/pujiverse/Expense-Manager'),
